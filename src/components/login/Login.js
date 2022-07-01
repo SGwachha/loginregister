@@ -6,13 +6,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { loginApiService } from "../../services/apiServices";
 
 const Login = () => {
-  const [isoff, setIsoff] = useState(false);
   const [show, setShow] = useState(false);
-  const handleButton = () => {
-    setIsoff(isoff);
-  };
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -29,17 +26,14 @@ const Login = () => {
     register,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    if (data.cpassword === data.password) {
-      toast.success("Sucessfully Register", {
-        position: toast.POSITION.TOP_CENTER,
-      });
-      Navigate("/landingpage");
-    } else {
-      toast.error("requirements not fulfill", {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-    }
+  const onSubmit = async(data) => {
+   let loginApi = await loginApiService(data)
+   if(loginApi.type === "error"){
+    toast.error(loginApi.msg)
+   }
+   else{
+    toast.success("Logged in successfully")
+   }
   };
 
   return (
@@ -47,13 +41,12 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          type="email"
-          placeholder="Enter Your Email"
+          type="text"
+          placeholder="Enter Your Email or username"
           className="email"
           {...register(
-            "email",
-            { required: true },
-            { pattern: /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/ }
+            "username",
+            { required: true }
           )}
         />
         <br />
@@ -80,15 +73,6 @@ const Login = () => {
           </button>
         </div>
         {errors.password && <p className="err">* Required are not met</p>}
-        <div className="pass">
-          <input
-            type={"password"}
-            placeholder="Confirm Password"
-            className="cpassword"
-            {...register("cpassword", { required: true })}
-          />
-          <br />
-        </div>
         <ToastContainer autoClose={1000} />
         <button className="submit" type="submit">
           SignIn
@@ -101,6 +85,9 @@ const Login = () => {
         >
           Don't have an account? Register here
         </button>
+        <button className="btn1" onClick={() => {
+            Navigate("/reset");
+          }}>Reset Password</button>
       </form>
     </div>
   );

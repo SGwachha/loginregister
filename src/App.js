@@ -1,14 +1,12 @@
-// import './App.css';
+import './App.css'
 import Navbar from './navbar/Navbar';
 import Routing from './routing/Routing';
-// import {ToastContainer} from 'react-toastify'
-
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <ToastContainer/>
       <Navbar/>
-      {/* <ToastContainer/> */}
-      {/* remove this comment */}
       <Routing/>
     </div>
   );

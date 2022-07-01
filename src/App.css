@@ -1,6 +1,6 @@
 .heading-container{
     background-image: url("./image/cyber.jpeg");
-    height: 600px;
+    height: 795px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8,7 +8,12 @@
 .heading{
     align-items: center;
     text-align: center;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     color: white;
     padding: 40px;
+}
+
+.app{
+    background-color: rgb(211, 206, 206);
+    height: 1000px;
 }
