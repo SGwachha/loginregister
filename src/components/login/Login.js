@@ -4,16 +4,10 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { loginApiService } from "../../services/apiServices";
 
 const Login = () => {
   const [show, setShow] = useState(false);
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
 
   const Navigate = useNavigate();
   const [values, setValues] = useState({
@@ -26,14 +20,13 @@ const Login = () => {
     register,
     formState: { errors },
   } = useForm();
-  const onSubmit = async(data) => {
-   let loginApi = await loginApiService(data)
-   if(loginApi.type === "error"){
-    toast.error(loginApi.msg)
-   }
-   else{
-    toast.success("Logged in successfully")
-   }
+  const onSubmit = async (data) => {
+    let loginApi = await loginApiService(data);
+    if (loginApi.type === "error") {
+      toast.error(loginApi.msg);
+    } else {
+      toast.success("Logged in successfully");
+    }
   };
 
   return (
@@ -44,10 +37,7 @@ const Login = () => {
           type="text"
           placeholder="Enter Your Email or username"
           className="email"
-          {...register(
-            "username",
-            { required: true }
-          )}
+          {...register("username", { required: true })}
         />
         <br />
         <div className="pass">
@@ -55,27 +45,18 @@ const Login = () => {
             type={values.showPassword ? "text" : "password"}
             placeholder="Enter Your Password"
             className="password"
-            {...register(
-              "password",
-              { required: true, 
-                pattern:
-                /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
-              }
-            )}
+            {...register("password", {
+              required: true,
+              pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
+            })}
           />
           <br />
-          <button className="icon" onClick={(handleButton) => setShow(!show)}>
-            {show ? (
-              <VisibilityOffIcon />
-            ) : (
-              <VisibilityIcon onClick={handleClickShowPassword} />
-            )}
-          </button>
+          <button className="icon" onClick={(handleButton) => setShow(!show)} />
         </div>
         {errors.password && <p className="err">* Required are not met</p>}
         <ToastContainer autoClose={1000} />
         <button className="submit" type="submit">
-          SignIn
+          Login
         </button>
         <button
           className="btn1"
@@ -85,9 +66,14 @@ const Login = () => {
         >
           Don't have an account? Register here
         </button>
-        <button className="btn1" onClick={() => {
+        <button
+          className="btn1"
+          onClick={() => {
             Navigate("/reset");
-          }}>Reset Password</button>
+          }}
+        >
+          Forget Password
+        </button>
       </form>
     </div>
   );

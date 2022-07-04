@@ -2,9 +2,6 @@ import React, {useState} from 'react'
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-// import { toast } from 'react-toastify';
 import './Resetpassword.css'
 
 
@@ -12,9 +9,9 @@ const ResetPassword = () => {
 
     const [show, setShow] = useState(false);
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
+  // const handleClickShowPassword = () => {
+  //   setValues({ ...values, showPassword: !values.showPassword });
+  // };
 
   const Navigate = useNavigate();
   const [values, setValues] = useState({
@@ -23,16 +20,6 @@ const ResetPassword = () => {
   });
 
   const onSubmit = (data) => {
-    // if (data.cpassword === data.password) {
-    //   toast.success("Sucessfully Register", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    //   Navigate("/landingpage");
-    // } else {
-    //   toast.error("requirements not fulfill", {
-    //     position: toast.POSITION.BOTTOM_CENTER,
-    //   });
-    // }
   };
 
   const {
@@ -40,19 +27,6 @@ const ResetPassword = () => {
     register,
     formState: { errors },
   } = useForm();
-
-//   const onSubmit = (data) => {
-//     if (data.cpassword === data.password) {
-//       toast.success("Sucessfully Register", {
-//         position: toast.POSITION.TOP_CENTER,
-//       });
-//       Navigate("/landingpage");
-//     } else {
-//       toast.error("requirements not fulfill", {
-//         position: toast.POSITION.BOTTOM_CENTER,
-//       });
-//     }
-//   };
 
   return (
     <div className="resetPassword">
@@ -83,15 +57,9 @@ const ResetPassword = () => {
             )}
           />
           <br />
-          <button className="icon" onClick={(handleButton) => setShow(!show)}>
-            {show ? (
-              <VisibilityOffIcon />
-            ) : (
-              <VisibilityIcon onClick={handleClickShowPassword} />
-            )}
-          </button>
+          <button className="icon" onClick={(handleButton) => setShow(!show)} />
         </div>
-        {errors.password && <p className="err">* Required are not met</p>}
+        {errors.password && <p className="err">* Password doesn't match</p>}
         <button className="btn1" type="submit">
           Reset
         </button>

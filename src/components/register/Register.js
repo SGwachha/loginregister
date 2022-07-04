@@ -3,23 +3,16 @@ import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import ReCAPTCHA from "react-google-recaptcha";
 import { registerApiService } from "../../services/apiServices";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const [show, setShow] = useState(false);
   const [captcha, setCaptcha] = useState("");
 
   const onChange = (value) => {
     setCaptcha(value);
     console.log("captcha value : ", value);
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
   };
 
   const Navigate = useNavigate();
@@ -88,16 +81,10 @@ const Register = () => {
             })}
           />
           <br />
-          <button className="icon" onClick={(handleButton) => setShow(!show)}>
-            {show ? (
-              <VisibilityOffIcon />
-            ) : (
-              <VisibilityIcon onClick={handleClickShowPassword} />
-            )}
-          </button>
+          <button className="icon" />
           <br />
         </div>
-        {errors.password && <p className="err">* Required are not met</p>}
+        {errors.password && <p className="err">*password should contain atleast one 'special character' one 'capital letter' and one 'number'</p>}
         <br />
         <ReCAPTCHA
           className="captcha"
@@ -106,7 +93,7 @@ const Register = () => {
         />
         <button className="submit" type="submit" disabled={captcha === " "}>
           {" "}
-          SignUp
+          Register
         </button>
         <button
           className="btn1"
