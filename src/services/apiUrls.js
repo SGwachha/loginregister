@@ -12,5 +12,9 @@ export const apiUrls = {
       method: "post",
       url: "/api/auth/forget",
     },
+    resetPass: {
+      method: "post",
+      url: "/api/auth/reset",
+    },
   },
 };

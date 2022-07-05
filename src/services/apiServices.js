@@ -26,3 +26,11 @@ export const handleForgetApi = async (data) => {
   );
   return response;
 };
+export const handleResetApi = async (data) => {
+  let response = await authApi(
+    apiUrls.auth.resetPass.method,
+    apiUrls.auth.resetPass.url,
+    data
+  );
+  return response;
+};

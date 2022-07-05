@@ -32,17 +32,17 @@ const ForgetPass = () => {
     formState: { isSubmitting },
   } = useForm();
   const onSubmit = async (data) => {
-    // let forgetApi = await handleForgetApi(data);
-    // if (forgetApi.type === "error") {
-    //   toast.error(forgetApi.msg, {
-    //     position: toast.POSITION.TOP_RIGHT,
-    //   });
-    // } else {
-    //   toast.success(`Reset code is sent to ${data.email}`, {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    //   resetNav("/reset?email=" + data.email);
-    // }
+    let forgetApi = await handleForgetApi(data);
+    if (forgetApi.type === "error") {
+      toast.error(forgetApi.msg, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } else {
+      toast.success(`Reset code is sent to ${data.email}`, {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      resetNav("/reset?email=" + data.email);
+    }
   };
   return (
     <>
