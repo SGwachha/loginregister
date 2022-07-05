@@ -27,20 +27,18 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data,"HEllo there whats up")
+    console.log(data, "HEllo there whats up");
 
     let dataToSend = await registerApiService({
       ...data,
       token: captcha,
     });
-   if(dataToSend.type === "error"){
-    toast.error(dataToSend.msg)
-   }
-   else{
-        toast.success("Sucessfully Register")
-   }
+    if (dataToSend.type === "error") {
+      toast.error(dataToSend.msg);
+    } else {
+      toast.success("Sucessfully Register");
+    }
   };
-
 
   return (
     <div className="register-form">
@@ -84,7 +82,12 @@ const Register = () => {
           <button className="icon" />
           <br />
         </div>
-        {errors.password && <p className="err">*password should contain atleast one 'special character' one 'capital letter' and one 'number'</p>}
+        {errors.password && (
+          <p className="err">
+            *password should contain atleast one 'special character' one
+            'capital letter' and one 'number'
+          </p>
+        )}
         <br />
         <ReCAPTCHA
           className="captcha"
@@ -103,11 +106,14 @@ const Register = () => {
         >
           Already have an account? Login here
         </button>
-        <button className="btn1"
-         onClick={() => {
-          Navigate("/reset");
-        }}
-        >Reset Password</button>
+        <button
+          className="btn1"
+          onClick={() => {
+            Navigate("/reset");
+          }}
+        >
+          Reset Password
+        </button>
       </form>
     </div>
   );
