@@ -27,7 +27,6 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data, "HEllo there whats up");
 
     let dataToSend = await registerApiService({
       ...data,
@@ -52,14 +51,14 @@ const Register = () => {
         />
         <input
           type="text"
-          placeholder="Enter Your UserName"
+          placeholder="UserName"
           className="username"
           {...register("username", { required: true })}
         />
         <br />
         <input
           type="email"
-          placeholder="Enter Your Email"
+          placeholder="Email"
           className="email"
           {...register(
             "email",
@@ -71,7 +70,7 @@ const Register = () => {
         <div className="pass">
           <input
             type={values.showPassword ? "password" : "password"}
-            placeholder="Enter Your Password"
+            placeholder="Password"
             className="password"
             {...register("password", {
               required: true,
@@ -104,12 +103,12 @@ const Register = () => {
             Navigate("/login");
           }}
         >
-          Already have an account? Login here
+          Already have account? Click me
         </button>
         <button
           className="btn1"
           onClick={() => {
-            Navigate("/reset");
+            Navigate("/forget");
           }}
         >
           Reset Password

@@ -9,17 +9,17 @@
     align-items: center;
     margin-bottom: 30px;
     margin-top: 30px;
-    background-image: url("../../image/cyber1.png");
+    background-color: #595866;
     padding-right: 100px;
 }
 
 .login-form > h2 {
     margin-left: 100px;
+    color: #ffffff;
 }
 
 .login-form > form{
     background-color: #ffffff;
-    box-shadow: 3px 3px 5px 5px #aaaaaa;
     border-radius: 20px;
     margin-left: 150px;
     width: 400px;
@@ -53,7 +53,7 @@
     border: none;
     width: 80%;
     height: 30px;
-    background: transparent;
+    background-color: #4f4b85;
 }
 
 .pass{

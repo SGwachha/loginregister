@@ -35,7 +35,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          placeholder="Enter Your Email or username"
+          placeholder="Enter Your username"
           className="email"
           {...register("username", { required: true })}
         />
@@ -43,7 +43,7 @@ const Login = () => {
         <div className="pass">
           <input
             type={values.showPassword ? "text" : "password"}
-            placeholder="Enter Your Password"
+            placeholder="Password"
             className="password"
             {...register("password", {
               required: true,
@@ -53,7 +53,9 @@ const Login = () => {
           <br />
           <button className="icon" onClick={(handleButton) => setShow(!show)} />
         </div>
-        {errors.password && <p className="err">* Required are not met</p>}
+        {errors.password && <p className="err">
+        *password should contain atleast one 'special character' one
+            'capital letter' and one 'number'</p>}
         <ToastContainer autoClose={1000} />
         <button className="submit" type="submit">
           Login
@@ -64,15 +66,15 @@ const Login = () => {
             Navigate("/register");
           }}
         >
-          Don't have an account? Register here
+          Don't have account? Click me
         </button>
         <button
           className="btn1"
           onClick={() => {
-            Navigate("/reset");
+            Navigate("/forget");
           }}
         >
-          Forget Password
+          Reset Password
         </button>
       </form>
     </div>

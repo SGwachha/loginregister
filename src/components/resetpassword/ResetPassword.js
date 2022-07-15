@@ -5,29 +5,40 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Resetpassword.css";
 import ReactCodeInput from "react-code-input";
 import { handleResetApi } from "../../services/apiServices";
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
   const [show, setShow] = useState(false);
   let location = useLocation();
   const query = new URLSearchParams(location.search);
+  // console.log(query.get("email"), 'hello there whakdfjasdhfiergaefhsdjvhsdlkvjasdkjvh')
   const [code, setCode] = useState("");
   const handleCodeChange = (e) => {
     setCode(e);
   };
+
+
   const Navigate = useNavigate();
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
 
+
   const onSubmit = async (data) => {
-    console.log(data, "HEllo there whats up");
+    // console.log(data, "HEllo there whats up");
     let resetApi = await handleResetApi({
       ...data,
-      code: code,
+      pin: code,
       email: query.get("email"),
     });
-    console.log(resetApi);
+   if(resetApi.type === "error"){
+    toast.error("SOmething went wrong")
+   }
+   else{
+    toast.success("Successfully updated your password")
+    Navigate('/login')
+   }
   };
   const {
     handleSubmit,
@@ -36,6 +47,7 @@ const ResetPassword = () => {
   } = useForm();
 
   return (
+    
     <div className="resetPassword">
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -65,7 +77,7 @@ const ResetPassword = () => {
         </div>
         {errors.password && <p className="err">* Password doesn't match</p>}
         <button className="btn1" type="submit">
-          Conform
+          Confirm
         </button>
         <button
           className="btn1"

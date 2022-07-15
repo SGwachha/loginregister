@@ -1,19 +1,6 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Heading,
-  Image,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  SimpleGrid,
-  Text,
-  Tooltip,
-} from "@chakra-ui/react";
-import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { handleForgetApi } from "../../services/apiServices";
 import { toast } from "react-toastify";
@@ -46,7 +33,7 @@ const ForgetPass = () => {
   };
   return (
     <>
-      <Flex align="center" justifyContent={"center"}>
+      <Flex align="center" justifyContent={"center"} boxShadow={''}>
         <Box>
           <Heading fontSize={"2xl"} color="#052F40">
             Forget Password?
@@ -66,16 +53,16 @@ const ForgetPass = () => {
               size={"lg"}
             />
             <br />
-            <Button
+            <Link to='/reset'
               type="submit"
               variant={"solid"}
-              color="white"
+              // color="white"
               colorScheme={"telegram"}
               isLoading={isSubmitting}
               size={"sm"}
             >
               Continue <ArrowForwardIcon />{" "}
-            </Button>
+            </Link>
           </form>
           <Text mt={4}>Remember password?</Text>
           <Button

@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <div className="navbar-container">
             <div className="navbar-header">
-                <h2>Cyber-Security</h2>
+                <h2>Assignment</h2>
             </div>
             <div className="btn">
                 <button className='login' onClick={() => {Navigate('/login')}} >Login</button>
