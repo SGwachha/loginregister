@@ -33,8 +33,17 @@ const ForgetPass = () => {
   };
   return (
     <>
-      <Flex align="center" justifyContent={"center"} boxShadow={''}>
-        <Box>
+      <Flex
+        bg="#fff"
+        mt="5%"
+        ml={"35%"}
+        w={"25%"}
+        h={"35%"}
+        align={"center"}
+        justify={"center"}
+        boxShadow={""}
+      >
+        <Box w={"100%"} h={"100%"} textAlign={"center"}>
           <Heading fontSize={"2xl"} color="#052F40">
             Forget Password?
           </Heading>
@@ -49,11 +58,13 @@ const ForgetPass = () => {
               textAlign="center"
               {...register("email")}
               width={"30"}
-              mb="4"
+              mt="5%"
+              mb="4%"
               size={"lg"}
             />
             <br />
-            <Link to='/reset'
+            <Link
+              to="/reset"
               type="submit"
               variant={"solid"}
               // color="white"
@@ -64,12 +75,13 @@ const ForgetPass = () => {
               Continue <ArrowForwardIcon />{" "}
             </Link>
           </form>
-          <Text mt={4}>Remember password?</Text>
+          <Text mt={"5%"}>Remember password?</Text>
           <Button
             variant={"link"}
-            color="twitter.500"
-            fontWeight={"light"}
             onClick={loginNav}
+            mt="5%"
+            border={"none"}
+            bg={"lightgrey"}
           >
             Login
           </Button>
