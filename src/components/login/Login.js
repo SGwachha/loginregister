@@ -66,7 +66,7 @@ const Login = () => {
             Navigate("/register");
           }}
         >
-          Don't have account? Click me
+          Don't have account? Sign up
         </button>
         <button
           className="btn1"

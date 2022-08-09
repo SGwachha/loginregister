@@ -1,33 +1,36 @@
-.navbar-container{
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 1px 2px black;
-    border-radius: 10px;
-    width: 1400px;
-    margin-left: 250px;
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 1px 2px black;
+  border-radius: 10px;
+  width: 1400px;
+  margin-left: 250px;
 }
 
-.navbar-header > h2{
-    text-align: center;
+.navbar-header > h2 {
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.btn{
-    margin: auto;
-    margin-bottom: 10px;
+.btn {
+  margin: auto;
+  margin-bottom: 10px;
 }
 
-.login{
-    height: 30px;
-    width: 70px;
-    margin-right: 20px;
-    border-radius: 10px;
-    border: none;
+.nav-login {
+  height: 30px;
+  width: 70px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
 }
 
-.register{
-    height: 30px;
-    width: 80px;
-    margin-right: 20px;
-    border-radius: 10px;
-    border: none;
+.nav-register {
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: none;
 }

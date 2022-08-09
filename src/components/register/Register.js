@@ -103,7 +103,7 @@ const Register = () => {
             Navigate("/login");
           }}
         >
-          Already have account? Click me
+          Already have account? Sign in
         </button>
         <button
           className="btn1"

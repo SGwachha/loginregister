@@ -9,11 +9,11 @@ const Navbar = () => {
     return (
         <div className="navbar-container">
             <div className="navbar-header">
-                <h2>Assignment</h2>
+                <h2>computer system engineering-City of bayjing fun olympic games</h2>
             </div>
             <div className="btn">
-                <button className='login' onClick={() => {Navigate('/login')}} >Login</button>
-                <button className='register' onClick={() => {Navigate('/register')}}>Register</button>
+                <button className='nav-login' onClick={() => {Navigate('/login')}} >Login</button>
+                <button className='nav-register' onClick={() => {Navigate('/register')}}>Register</button>
             </div>
         </div>
     )
