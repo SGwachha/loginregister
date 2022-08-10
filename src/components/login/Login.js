@@ -57,7 +57,9 @@ const Login = () => {
         *password should contain atleast one 'special character' one
             'capital letter' and one 'number'</p>}
         <ToastContainer autoClose={1000} />
-        <button className="submit" type="submit">
+        <button className="submit" type="submit" onClick={() => {
+          Navigate("/landingpage")
+        }}>
           Login
         </button>
         <button
